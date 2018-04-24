@@ -11,12 +11,11 @@ import javax.persistence.*;
 @Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "department")
 public class Department {
 
     public Department(String name) {
-        this.name = name;
+        setName(name);
     }
 
     @Id
@@ -26,4 +25,8 @@ public class Department {
 
     @Column(name = "department_name", unique = true, nullable = false)
     private String name;
+
+    public void setName(String name) {
+        this.name = name.trim();
+    }
 }

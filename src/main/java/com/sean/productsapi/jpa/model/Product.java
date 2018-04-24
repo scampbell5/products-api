@@ -1,18 +1,14 @@
 package com.sean.productsapi.jpa.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Getter
-@Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "product")
 public class Product {
 
@@ -28,7 +24,7 @@ public class Product {
     private String description;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "product_last_sold_date", nullable = false)
+    @Column(name = "product_last_sold_date")
     private Date lastSoldDate;
 
     @Column(name = "product_shelf_life", nullable = false)
@@ -49,4 +45,40 @@ public class Product {
 
     @Column(name = "product_cost")
     private String cost;
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId.trim();
+    }
+
+    public void setDescription(String description) {
+        this.description = description.trim();
+    }
+
+    public void setLastSoldDate(Date lastSoldDate) {
+        this.lastSoldDate = lastSoldDate;
+    }
+
+    public void setShelfLife(String shelfLife) {
+        this.shelfLife = shelfLife.trim();
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public void setPrice(String price) {
+        this.price = price.trim();
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit.trim();
+    }
+
+    public void setXFor(String xFor) {
+        this.xFor = xFor.trim();
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost.trim();
+    }
 }
