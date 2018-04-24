@@ -21,6 +21,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "product_external_id", nullable = false, unique = true)
+    private String externalId;
+
     @Column(name = "product_description", nullable = false)
     private String description;
 

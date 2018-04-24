@@ -31,6 +31,7 @@ public class ProductRepositoryTests extends ProductsApiApplicationTests {
         product.setUnit("1lb");
         product.setDepartment(department);
         product.setPrice("$2");
+        product.setExternalId("12345");
 
         product = productRepository.save(product);
 
