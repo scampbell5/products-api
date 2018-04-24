@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create-department-table"  author="scampbell1">
+        <createTable tableName="department">
+            <column autoIncrement="true" name="department_id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="department_name" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-product-table"  author="scampbell1">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="product_id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_external_id" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="product_description" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_last_sold_date" type="date"/>
+            <column name="product_shelf_life" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_department_id" type="bigint">
+                <constraints foreignKeyName="fk_product_department_id" referencedTableName="department" referencedColumnNames="department_id" nullable="false"/>
+            </column>
+            <column name="product_price" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_unit" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_x_for" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_cost" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
