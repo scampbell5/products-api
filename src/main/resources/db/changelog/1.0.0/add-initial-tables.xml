@@ -15,6 +15,9 @@
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
+        <createIndex tableName="department" indexName="department_name_index">
+            <column name="department_name"/>
+        </createIndex>
     </changeSet>
 
     <changeSet id="create-product-table"  author="scampbell1">
@@ -48,5 +51,11 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createIndex tableName="product" indexName="product_department_index">
+            <column name="product_department_id"/>
+        </createIndex>
+        <createIndex tableName="product" indexName="product_external_id_index">
+            <column name="product_external_id"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>
