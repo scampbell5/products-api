@@ -2,10 +2,7 @@ package com.sean.productsapi.controller;
 
 import com.sean.productsapi.jpa.model.Product;
 import com.sean.productsapi.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
