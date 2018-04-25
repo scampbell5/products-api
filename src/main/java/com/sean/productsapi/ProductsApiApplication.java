@@ -14,23 +14,23 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class ProductsApiApplication {
 
-    @Configuration
-    @Profile("h2")
-    private class SeedDataConfiguration {
+	@Configuration
+	@Profile("h2")
+	private class SeedDataConfiguration {
 
-    	private final CSVProductLoader csvProductLoader;
+		private final CSVProductLoader csvProductLoader;
 		private final String filePath;
 
-    	public SeedDataConfiguration(CSVProductLoader csvProductLoader, @Value("${seedData.filePath}") String filePath) {
-    		this.csvProductLoader = csvProductLoader;
-    		this.filePath = filePath;
+		public SeedDataConfiguration(CSVProductLoader csvProductLoader, @Value("${seedData.filePath}") String filePath) {
+			this.csvProductLoader = csvProductLoader;
+			this.filePath = filePath;
 		}
 
-    	@PostConstruct
-        public void init() {
+		@PostConstruct
+		public void init() {
 			csvProductLoader.load(filePath);
 		}
-    }
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductsApiApplication.class, args);
