@@ -43,7 +43,7 @@ public class Product {
     @Column(name = "product_x_for", nullable = false)
     private String xFor;
 
-    @Column(name = "product_cost")
+    @Column(name = "product_cost", nullable = false)
     private String cost;
 
     public void setExternalId(String externalId) {
